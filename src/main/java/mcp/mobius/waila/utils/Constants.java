@@ -1,5 +1,7 @@
 package mcp.mobius.waila.utils;
 
+import java.util.regex.Pattern;
+
 public final class Constants {
 
     public static String BIND_SCREEN_WIKI = "showwiki";
@@ -36,10 +38,15 @@ public final class Constants {
     public static String CFG_WAILA_GRADIENT1 = "waila.cfg.gradient1";
     public static String CFG_WAILA_GRADIENT2 = "waila.cfg.gradient2";
     public static String CFG_WAILA_FONTCOLOR = "waila.cfg.fontcolor";
+    public static String CFG_WAILA_MODNAMESTYLE = "waila.cfg.modnamestyle";
+    public static String CFG_WAILA_IGNOREMODSPECIFICSTYLES = "waila.cfg.ignoremodspecificstyles";
 
     public static String CATEGORY_MODULES = "modules";
     public static String CATEGORY_SERVER = "server_forcing";
     public static boolean SERVER_FREE = false;
     public static boolean SERVER_FORCED = true;
+    public static Pattern colormatcher;
+    public static String modnameStyle;
+    public static boolean ignoreModSpecificStyles;
 
 }

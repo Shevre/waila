@@ -4,6 +4,8 @@ import static mcp.mobius.waila.api.SpecialChars.*;
 
 import java.util.List;
 
+import mcp.mobius.waila.overlay.OverlayConfig;
+import mcp.mobius.waila.utils.Constants;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -66,7 +68,7 @@ public class HUDHandlerStatues implements IWailaDataProvider {
     @Override
     public List<String> getWailaTail(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor,
             IWailaConfigHandler config) {
-        currenttip.add(BLUE + ITALIC + "Statues");
+        currenttip.add(Constants.modnameStyle + "Statues");
         return currenttip;
     }
 

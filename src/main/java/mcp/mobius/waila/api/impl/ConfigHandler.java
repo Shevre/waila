@@ -14,6 +14,7 @@ import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.handlers.HUDHandlerEntities;
 import mcp.mobius.waila.overlay.OverlayConfig;
 import mcp.mobius.waila.utils.Constants;
+import scala.collection.immutable.Stream;
 
 public class ConfigHandler implements IWailaConfigHandler {
 
@@ -146,8 +147,11 @@ public class ConfigHandler implements IWailaConfigHandler {
         config.get(Configuration.CATEGORY_GENERAL, Constants.CFG_WAILA_KEYBIND, true);
         config.get(Configuration.CATEGORY_GENERAL, Constants.CFG_WAILA_NEWFILTERS, true);
 
+
         OverlayConfig.posX = config.get(Configuration.CATEGORY_GENERAL, Constants.CFG_WAILA_POSX, 5000).getInt();
         OverlayConfig.posY = config.get(Configuration.CATEGORY_GENERAL, Constants.CFG_WAILA_POSY, 100).getInt();
+        Constants.modnameStyle = config.get(Configuration.CATEGORY_GENERAL,Constants.CFG_WAILA_MODNAMESTYLE,"\u00a79\u00a7o").getString();
+        Constants.ignoreModSpecificStyles = config.get(Configuration.CATEGORY_GENERAL,Constants.CFG_WAILA_IGNOREMODSPECIFICSTYLES,false).getBoolean();
 
         OverlayConfig.alpha = config.get(Configuration.CATEGORY_GENERAL, Constants.CFG_WAILA_ALPHA, 80).getInt();
         OverlayConfig.bgcolor = config.get(Configuration.CATEGORY_GENERAL, Constants.CFG_WAILA_BGCOLOR, 0x100010)

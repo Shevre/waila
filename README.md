@@ -1,0 +1,1 @@
+Adds config option to change mod name text style and config option to ignore the custom text styles mods like et futurum requiem and netherlicious use.

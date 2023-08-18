@@ -3,12 +3,15 @@ package mcp.mobius.waila.utils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.HashMap;
+import java.util.regex.Pattern;
 
 import net.minecraft.item.ItemStack;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.registry.GameData;
+import scala.collection.immutable.Stream;
+
 
 public class ModIdentification {
 
@@ -16,6 +19,7 @@ public class ModIdentification {
     public static HashMap<String, String> modSource_ID = new HashMap<String, String>();
     public static HashMap<Integer, String> itemMap = new HashMap<Integer, String>();
     public static HashMap<String, String> keyhandlerStrings = new HashMap<String, String>();
+
 
     public static void init() {
 
@@ -42,6 +46,7 @@ public class ModIdentification {
         modSource_ID.put("1.6.4.jar", "Minecraft");
         modSource_ID.put("1.7.2.jar", "Minecraft");
         modSource_ID.put("Forge", "Minecraft");
+
 
         // for (String s : this.modSourceList.keySet())
         // if (this.modSourceList.get(s) == "Minecraft Coder Pack")
@@ -77,6 +82,10 @@ public class ModIdentification {
 
         if (modName.equals("Minecraft Coder Pack")) modName = "Minecraft";
 
+        if(Constants.ignoreModSpecificStyles){
+            modName = Constants.colormatcher.matcher(modName).replaceAll("");
+        }
+
         return modName;
     }
 
@@ -94,7 +103,13 @@ public class ModIdentification {
             // String modID = itemMap.get(itemstack.itemID);
             // ModContainer mod = ModIdentification.findModContainer(modID);
             ModContainer mod = GameData.findModOwner(GameData.itemRegistry.getNameForObject(stack.getItem()));
-            String modname = mod == null ? "Minecraft" : mod.getName();
+            String modname;
+            if(Constants.ignoreModSpecificStyles){
+                modname = mod == null ? "Minecraft" : Constants.colormatcher.matcher(mod.getName()).replaceAll("");//this might be bad? idk
+            }else {
+                modname = mod == null ? "Minecraft" : mod.getName();
+            }
+
             return modname;
         } catch (NullPointerException e) {
             // System.out.printf("NPE : %s\n",itemstack.toString());

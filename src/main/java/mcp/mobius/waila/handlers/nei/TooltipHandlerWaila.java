@@ -2,6 +2,8 @@ package mcp.mobius.waila.handlers.nei;
 
 import java.util.List;
 
+import mcp.mobius.waila.overlay.OverlayConfig;
+import mcp.mobius.waila.utils.Constants;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
 
@@ -19,7 +21,7 @@ public class TooltipHandlerWaila implements IContainerTooltipHandler {
     public List<String> handleItemTooltip(GuiContainer arg0, ItemStack itemstack, int arg2, int arg3,
             List<String> currenttip) {
         String canonicalName = ModIdentification.nameFromStack(itemstack);
-        if (canonicalName != null && !canonicalName.equals("")) currenttip.add("\u00a79\u00a7o" + canonicalName);
+        if (canonicalName != null && !canonicalName.equals("")) currenttip.add(Constants.modnameStyle + canonicalName);
         return currenttip;
     }
 

@@ -4,6 +4,7 @@ import static mcp.mobius.waila.api.SpecialChars.*;
 
 import java.util.List;
 
+import mcp.mobius.waila.overlay.OverlayConfig;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -79,7 +80,7 @@ public class HUDHandlerBlocks implements IWailaDataProvider {
 
         String modName = ModIdentification.nameFromStack(itemStack);
         if (modName != null && !modName.equals("")) {
-            currenttip.add(BLUE + ITALIC + modName);
+            currenttip.add(Constants.modnameStyle + modName);
         }
 
         return currenttip;

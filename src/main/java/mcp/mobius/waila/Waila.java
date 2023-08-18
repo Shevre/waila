@@ -1,7 +1,9 @@
 package mcp.mobius.waila;
 
 import java.lang.reflect.Field;
+import java.util.regex.Pattern;
 
+import mcp.mobius.waila.utils.Constants;
 import net.minecraftforge.common.MinecraftForge;
 
 import org.apache.logging.log4j.LogManager;
@@ -84,6 +86,7 @@ public class Waila {
 
         }
         FMLCommonHandler.instance().bus().register(new NetworkHandler());
+        Constants.colormatcher = Pattern.compile("§.");
     }
 
     @EventHandler

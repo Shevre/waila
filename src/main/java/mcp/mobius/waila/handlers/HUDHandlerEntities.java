@@ -4,6 +4,8 @@ import static mcp.mobius.waila.api.SpecialChars.*;
 
 import java.util.List;
 
+import mcp.mobius.waila.overlay.OverlayConfig;
+import mcp.mobius.waila.utils.Constants;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -74,9 +76,9 @@ public class HUDHandlerEntities implements IWailaEntityProvider {
     public List<String> getWailaTail(Entity entity, List<String> currenttip, IWailaEntityAccessor accessor,
             IWailaConfigHandler config) {
         try {
-            currenttip.add(BLUE + ITALIC + getEntityMod(entity));
+            currenttip.add(Constants.modnameStyle + getEntityMod(entity));
         } catch (Exception e) {
-            currenttip.add(BLUE + ITALIC + "Unknown");
+            currenttip.add(Constants.modnameStyle + "Unknown");
         }
         return currenttip;
     }
@@ -94,6 +96,9 @@ public class HUDHandlerEntities implements IWailaEntityProvider {
             modName = modC.getName();
         } catch (NullPointerException e) {
             modName = "Minecraft";
+        }
+        if(Constants.ignoreModSpecificStyles){
+            modName = Constants.colormatcher.matcher(modName).replaceAll("");
         }
         return modName;
     }
