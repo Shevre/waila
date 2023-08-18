@@ -86,7 +86,10 @@ public class Waila {
 
         }
         FMLCommonHandler.instance().bus().register(new NetworkHandler());
-        Constants.colormatcher = Pattern.compile("§.");
+        if(Constants.ignoreModSpecificStyles){
+            Constants.colormatcher = Pattern.compile("§.");
+        }
+
     }
 
     @EventHandler

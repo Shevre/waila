@@ -1,7 +1,5 @@
 package mcp.mobius.waila.utils;
 
-import java.util.regex.Pattern;
-
 public final class Constants {
 
     public static String BIND_SCREEN_WIKI = "showwiki";
@@ -45,7 +43,7 @@ public final class Constants {
     public static String CATEGORY_SERVER = "server_forcing";
     public static boolean SERVER_FREE = false;
     public static boolean SERVER_FORCED = true;
-    public static Pattern colormatcher;
+    public static java.util.regex.Pattern colormatcher;
     public static String modnameStyle;
     public static boolean ignoreModSpecificStyles;
 

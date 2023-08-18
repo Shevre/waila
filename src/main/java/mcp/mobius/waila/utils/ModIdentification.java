@@ -3,14 +3,13 @@ package mcp.mobius.waila.utils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.HashMap;
-import java.util.regex.Pattern;
 
 import net.minecraft.item.ItemStack;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.registry.GameData;
-import scala.collection.immutable.Stream;
+
 
 
 public class ModIdentification {

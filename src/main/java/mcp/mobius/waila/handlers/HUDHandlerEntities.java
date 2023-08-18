@@ -4,7 +4,6 @@ import static mcp.mobius.waila.api.SpecialChars.*;
 
 import java.util.List;
 
-import mcp.mobius.waila.overlay.OverlayConfig;
 import mcp.mobius.waila.utils.Constants;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
